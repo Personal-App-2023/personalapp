@@ -27,15 +27,15 @@ pipeline {
 
     stage('SonarQube Analysis') {
   steps {
-    sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=http://10.1.1.3:9000/ -Dsonar.login=squ_337305de528b9e20f46391b4856f3eee0fbecb3d'
-  }
+    sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=http://10.1.1.3:9000/ -Dsonar.login=squ_01275b7b0761254429acb4a15a9a091651a40c23'
+  }squ_01275b7b0761254429acb4a15a9a091651a40c23
 }
 
 
    stage('Check code coverage') {
             steps {
                 script {
-                    def token = "squ_337305de528b9e20f46391b4856f3eee0fbecb3d"
+                    def token = "squ_01275b7b0761254429acb4a15a9a091651a40c23"
                     def sonarQubeUrl = "http://10.1.1.3:9000/api"
                     def componentKey = "com.dodo:personalapp"
                     def coverageThreshold = 80.0
