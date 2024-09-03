@@ -32,4 +32,10 @@ public class ThoughtsController {
     {
         return service.findThoughtsByUserEmotion(emotion,userId);
     }
+
+    @GetMapping("/quote")
+    public String getQuoteOfTheDay()
+    {
+        return service.getQuoteOfTheDay();
+    }
 }

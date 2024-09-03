@@ -6,11 +6,11 @@ import com.dodo.personalapp.entity.UserThoughts;
 import com.dodo.personalapp.repository.ThoughtsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 
 @Service
@@ -19,6 +19,8 @@ public class ThougthsService {
     ThoughtsRepository repo;
     @Autowired
     SequenceGenerator generator;
+    @Autowired
+    RestTemplate restTemplate;
 
     public UserThoughts save(UserThoughts userThought)
     {
@@ -76,5 +78,13 @@ public class ThougthsService {
             }
         }
         return thoughts;
+    }
+
+    public String getQuoteOfTheDay() {
+//        String uri="https://quotes.rest/qod.json?category=inspire&api_key=Q3yDonTV1lfaFMXwKsu4BskSnQmypWzCFNqOxEz3";
+//        QuoteResponse resp=restTemplate.getForObject(uri,QuoteResponse.class);
+//        return resp.getContents().getQuotes()[0].getQuote();
+        String uri="https://api.quotable.io/random?tags=[Inspirational]";
+        return null;
     }
 }
